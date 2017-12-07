@@ -408,7 +408,7 @@
                 <div class="container text-center">
                     <h2 class="text-white">Keep Up To Date</h2>
                     <p class=" mb-4">Subscribe to our mailing list</p>
-                    <form class="contact-form">
+                    <form class="contact-form" method="post" action="">
                         <div class="row justify-content-center">
                             <div class="col-md-3">
                                 <div class="form-group">
@@ -423,7 +423,7 @@
                                 </div>
                             </div>
                             <div class="col-md-2">
-                                <button class="btn btn-dark text-white btn-block">Subscribe</button>
+                                <button class="btn btn-dark text-white btn-block" type="submit">Subscribe</button>
                             </div>
 
                         </div>
@@ -458,14 +458,16 @@
 
         <!--OWL CAROUSEL-->
         <script src="js/owl.carousel.min.js" type="text/javascript"></script>
+        
+        <script src="js/jquery.validate.min.js" type="text/javascript"></script>
 
         <script src="js/main.js" type="text/javascript"></script>
 
 
-        <!--<script type="text/javascript">
+        <script type="text/javascript">
             $(document).ready(function () {
                 $(function () {
-                    $("").validate({
+                    $(".contact-form").validate({
                         highlight: function (element) {
                             $(element).closest('.form-group').addClass("has-danger");
                             $(element).addClass("form-control-danger");
@@ -478,6 +480,10 @@
                             name: {
                                 required: true,
                                 rangelength: [3, 255]
+                            },
+                            email: {
+                                required: true,
+                                email: true
                             }
 
                         },
@@ -485,6 +491,10 @@
                             name: {
                                 required: "The *Name field is required!",
                                 rangelength: "The *Name must be between 3 and 255 characters!"
+                            },
+                            email: {
+                                required: "The *Email field is required!",
+                                email: "Please enter a valid email address!"
                             }
                         },
                         errorElement: 'p',
@@ -498,7 +508,7 @@
             //Form Validation
 
 
-        </script>-->
+        </script>
 
     </body>
 </html>
