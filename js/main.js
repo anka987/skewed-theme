@@ -20,7 +20,7 @@ $(document).ready(function () {
     });
 
 
-    // prvi bxslider
+    // prvi bxslider (u sekciji slider)
 
     if ($('.bxslider').length > 0) {
         $('.lead-slider').bxSlider();
@@ -50,6 +50,8 @@ $(document).ready(function () {
     });
 
 
+    // owl-carousel u sekciji team
+
     if ($('.owl-carousel').length > 0) {
         $('.team-slider').owlCarousel({
             loop: true,
@@ -70,6 +72,8 @@ $(document).ready(function () {
                 }
             }
         });
+
+        // owl-carousel u sekciji portfolio
 
         $('.portfolio-slider').owlCarousel({
             loop: true,
@@ -94,35 +98,63 @@ $(document).ready(function () {
             }
         });
 
-
-
-
-
     }
 
+    /*$(window).scroll(function () {
+     var wh = $(window).height();
+     var scroll = $(window).scrollTop();
+     var position = $('.achievements').offset().top;
+     $('.counter-number').each(function () {
+     
+     if (position < wh + scroll - 100) {
+     $(this).prop('Counter', 0).animate({
+     Counter: $(this).text()
+     }, {
+     duration: 2000,
+     easing: 'swing',
+     step: function (now) {
+     $(this).text(Math.ceil(now));
+     }
+     });
+     }
+     
+     });
+     });*/
+    
+
+    // counter
+
+    var a = 0;
     $(window).scroll(function () {
-        var wh = $(window).height();
-        var scroll = $(window).scrollTop();
-        var position = $('.achievements').offset().top;
-        $('.counter-number').each(function () {
-            
-            if (position < wh + scroll - 100) {
-                $(this).prop('Counter', 0).animate({
-                    Counter: $(this).text()
-                }, {
-                    duration: 2000,
-                    easing: 'swing',
-                    step: function (now) {
-                        $(this).text(Math.ceil(now));
-                    }
-                });
-            }
 
-        });
+        var oTop = $('.achievements').offset().top - window.innerHeight;
+        if (a == 0 && $(window).scrollTop() > oTop + 500) {
+            $('.counter-number').each(function () {
+                var $this = $(this),
+                        countTo = $this.attr('data-count');
+                $({
+                    countNum: $this.text()
+                }).animate({
+                    countNum: countTo
+                },
+                        {
+
+                            duration: 2000,
+                            easing: 'swing',
+                            step: function () {
+                                $this.text(Math.floor(this.countNum));
+                            },
+                            complete: function () {
+                                $this.text(this.countNum);
+                                //alert('finished');
+                            }
+
+                        });
+            });
+            a = 1;
+        }
+
     });
-
-
-
 
 
 
