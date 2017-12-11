@@ -274,14 +274,34 @@ header{
     position: absolute;
     height: 0;
     width: 100%;
-    bottom: 0;
+    top: 0;
     left: 0;
-    transition: 0.5s ease;
-    background: rgba(0,0,0,0.5) url('assets/favicon.png') no-repeat center;
+    /*transition: 0.5s ease;*/
+    background: rgba(0,0,0,0.5);
+    display: none;
+}
+
+.portfolio li a{
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    top: 50%;
+    position: relative;
+    transform: translateY(-50%);
+}
+
+.portfolio li .fa{
+    font-size: 20px;
+    color: #000; 
+    line-height: 60px;
 }
 
 .portfolio .portfolio-slider li:hover .hover{
     height: 100%;
+    display: block;
+    
 }
 
 footer .social a{
@@ -297,6 +317,12 @@ footer .social .fa{
     line-height: 40px;
     font-size: 26px;
     color: #fff;
+    transition: 1s linear;
 }
 
 
+
+footer .social a:hover .fa{
+    color: #f7cc4b;
+    transform: rotate(360deg);
+}
