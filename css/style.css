@@ -207,25 +207,29 @@ header{
 /****** PARALLAX END *******/
 
 
-/****** PRINCIPLES START *****/
+/****** PORTFOLIO START *****/
 
-.portfolio .portfolio-slider .hover{
+.portfolio ul li figure{
+    position: relative;
+}
+
+.portfolio li figure .hover{
     position: absolute;
-    height: 0;
+    height: 100%;
     width: 100%;
     top: 0;
     left: 0;
-    /*transition: 0.5s ease;*/
-    background: rgba(0,0,0,0.5);
-    display: none;
+    opacity: 0;
+    background: rgba(0,0,0,0.6);
+    transition: 3s ease;
 }
 
-.portfolio li a{
+.portfolio figure .hover a{
     display: inline-block;
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.4);
     top: 50%;
     position: relative;
     transform: translateY(-50%);
@@ -237,9 +241,8 @@ header{
     line-height: 60px;
 }
 
-.portfolio .portfolio-slider li:hover .hover{
-    height: 100%;
-    display: block;  
+.portfolio .portfolio-slider li:hover .hover{; 
+    opacity: 1;
 }
 
 /****** PORTFOLIO END *******/
